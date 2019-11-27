@@ -20,4 +20,12 @@ public class BallRoller: MonoBehaviour
         rb.AddForce(Camera.transform.up * Input.GetAxis("Vertical"));
         rb.AddForce(Camera.transform.right * Input.GetAxis("Horizontal"));
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<EnemyTarget>().CurHp -= rb.velocity.magnitude * 10.0f;
+        }
+    }
 }
