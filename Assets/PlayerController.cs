@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
             if ((Input.GetAxis("Fire1") <= 0.0f) && (swing == null) && (chargeTime > 0.0f))
             {
-                swing = Instantiate(attack, rb.position, rb.rotation * Quaternion.Euler(-90,0,0)); // create an attack hitbox, save as swing
+                swing = Instantiate(attack, rb.position + 1.2f * cameraObject.transform.up, rb.rotation * Quaternion.Euler(-90,0,0)); // create an attack hitbox, save as swing
                 swingControl = swing.GetComponent<AttackController>(); // get the controller script of the attack
                 if (swingControl != null)
                 {
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
             if (swing != null)
             {
-                swing.transform.position = rb.position;
+               // swing.transform.position = rb.position;
             }
         }
     }
