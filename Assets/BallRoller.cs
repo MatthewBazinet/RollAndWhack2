@@ -25,7 +25,10 @@ public class BallRoller: MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyTarget>().CurHp -= rb.velocity.magnitude * 10.0f;
+            if (collision.rigidbody.velocity.sqrMagnitude < rb.velocity.sqrMagnitude) {
+                collision.gameObject.GetComponent<EnemyTarget>().CurHp -= rb.velocity.magnitude * 10.0f;
+                collision.rigidbody.AddForce(rb.velocity * 10.0f);
+            }
         }
     }
 }
