@@ -563,13 +563,18 @@ PrefabInstance:
     - target: {fileID: 2298607366999829909, guid: d41c517550119ae4b9ddf34802893be3,
         type: 3}
       propertyPath: MaxHp
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2298607366999829909, guid: d41c517550119ae4b9ddf34802893be3,
         type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 420063128}
+    - target: {fileID: 2298607366999829909, guid: d41c517550119ae4b9ddf34802893be3,
+        type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2298607366999829918, guid: d41c517550119ae4b9ddf34802893be3,
         type: 3}
       propertyPath: m_Mass
@@ -728,6 +733,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mass
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 484544271300250965, guid: dda146261675f3040bc3c99b43bd4b56,
+        type: 3}
+      propertyPath: maxHp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 484544271300250965, guid: dda146261675f3040bc3c99b43bd4b56,
+        type: 3}
+      propertyPath: curHp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 484544272242074812, guid: dda146261675f3040bc3c99b43bd4b56,
+        type: 3}
+      propertyPath: maxHp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 484544272242074812, guid: dda146261675f3040bc3c99b43bd4b56,
+        type: 3}
+      propertyPath: curHp
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dda146261675f3040bc3c99b43bd4b56, type: 3}

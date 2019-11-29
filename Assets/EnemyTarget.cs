@@ -5,9 +5,11 @@ using UnityEngine;
 public class EnemyTarget : MonoBehaviour
 {
     public float MaxHp; // maximum and starting HP
-    [HideInInspector] public float CurHp;
+    [HideInInspector] public float CurHp; // current HP
+    public float damage; // amount of damage to do when attacking
     private Rigidbody rb;
-   public GameObject camera;
+    public GameObject camera;
+
 
     // Start is called before the first frame update
     void Start()
