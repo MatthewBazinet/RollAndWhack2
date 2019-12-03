@@ -21,6 +21,7 @@ public class BallRoller: MonoBehaviour
 
         rb.AddForce(Camera.transform.up * Input.GetAxis("Vertical"));
         rb.AddForce(Camera.transform.right * Input.GetAxis("Horizontal"));
+
     }
 
     private void OnCollisionEnter(Collision collision)
