@@ -10,10 +10,10 @@ public class PlayerController : MonoBehaviour
     public float attackDuration; // how long the attack stays out, in seconds
     public float knockbackMax; // the maximum amount of knockback
     public float chargeMax; // the maximum charge time
+    public float chargeTime;
     public float maxHp; // maximum and starting Hp
     public float curHp;
     private Rigidbody rb;
-    private float chargeTime;
     private GameObject swing;
     private AttackController swingControl;
 
