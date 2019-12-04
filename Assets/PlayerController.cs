@@ -10,8 +10,10 @@ public class PlayerController : MonoBehaviour
     public float attackDuration; // how long the attack stays out, in seconds
     public float knockbackMax; // the maximum amount of knockback
     public float chargeMax; // the maximum charge time
+    public float chargeTime;
+    public float maxHp; // maximum and starting Hp
+    public float curHp;
     private Rigidbody rb;
-    private float chargeTime;
     private GameObject swing;
     private AttackController swingControl;
 
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>(); // the player object's Rigidbody
         chargeTime = 0.0f; // the amount of time the player has been charging; leave alone
         swing = null; // the active instance of the attack; leave alone
+        curHp = maxHp; // set starting HP
         //swingTime = attackDuration; // timer for the attack; leave alone
     }
 
@@ -48,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
             if ((Input.GetAxis("Fire1") <= 0.0f) && (swing == null) && (chargeTime > 0.0f))
             {
-                swing = Instantiate(attack, rb.position, rb.rotation * Quaternion.Euler(-90,0,0)); // create an attack hitbox, save as swing
+                swing = Instantiate(attack, rb.position + 1.2f * cameraObject.transform.up, rb.rotation * Quaternion.Euler(-90,0,0)); // create an attack hitbox, save as swing
                 swingControl = swing.GetComponent<AttackController>(); // get the controller script of the attack
                 if (swingControl != null)
                 {
@@ -61,8 +64,16 @@ public class PlayerController : MonoBehaviour
 
             if (swing != null)
             {
-                swing.transform.position = rb.position;
+               // swing.transform.position = rb.position;
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            curHp -= collision.gameObject.GetComponent<EnemyTarget>().damage;
         }
     }
 }
