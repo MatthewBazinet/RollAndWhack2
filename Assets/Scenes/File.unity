@@ -1475,6 +1475,16 @@ PrefabInstance:
       propertyPath: maxHp
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 484544272242074791, guid: dda146261675f3040bc3c99b43bd4b56,
+        type: 3}
+      propertyPath: curHp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 484544272242074791, guid: dda146261675f3040bc3c99b43bd4b56,
+        type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 484544271300250974, guid: dda146261675f3040bc3c99b43bd4b56,
         type: 3}
       propertyPath: spInfo
@@ -1495,7 +1505,10 @@ PrefabInstance:
       propertyPath: maxHp
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 484544272242074812, guid: dda146261675f3040bc3c99b43bd4b56, type: 3}
+    - {fileID: 484544272242074813, guid: dda146261675f3040bc3c99b43bd4b56, type: 3}
+    - {fileID: 484544272242074814, guid: dda146261675f3040bc3c99b43bd4b56, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dda146261675f3040bc3c99b43bd4b56, type: 3}
 --- !u!114 &1407536294 stripped
 MonoBehaviour:
@@ -1669,9 +1682,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraObject: {fileID: 420063128}
-  VelMax: 50
+  VelMax: 40
   chargeMax: 2
   rb: {fileID: 1629314308}
+  br: {fileID: 1629314311}
+  speed: 5
 --- !u!1 &1762139532
 GameObject:
   m_ObjectHideFlags: 0

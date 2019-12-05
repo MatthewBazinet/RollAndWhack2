@@ -9,6 +9,7 @@ public class BallRoller: MonoBehaviour
     public GameObject Camera;
     public float maxHp; // maximum and starting HP
     public float curHp; // current HP
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +20,8 @@ public class BallRoller: MonoBehaviour
     void Update()
     {
 
-        rb.AddForce(Camera.transform.up * Input.GetAxis("Vertical"));
-        rb.AddForce(Camera.transform.right * Input.GetAxis("Horizontal"));
+        rb.AddForce(speed * Camera.transform.up * Input.GetAxis("Vertical"));
+        rb.AddForce(speed * Camera.transform.right * Input.GetAxis("Horizontal"));
 
     }
 
