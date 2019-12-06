@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ChargeBar : MonoBehaviour
 {
+
+    public GameObject Sphere;
+    float chargeTime = 0;
+    float maxCharge = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,9 +17,16 @@ public class ChargeBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float chargeTime = GameObject.Find("Cube (Player)").GetComponent<PlayerController>().chargeTime;
-        float maxCharge = GameObject.Find("Cube (Player)").GetComponent<PlayerController>().chargeMax;
-
+        if (Sphere.activeInHierarchy)
+        {
+            chargeTime = GameObject.Find("Sphere (Player)").GetComponent<Dash>().chargeTime;
+            maxCharge = GameObject.Find("Sphere (Player)").GetComponent<Dash>().chargeMax;
+        }
+        else
+        {
+            chargeTime = GameObject.Find("Cube (Player)").GetComponent<PlayerController>().chargeTime;
+            maxCharge = GameObject.Find("Cube (Player)").GetComponent<PlayerController>().chargeMax;
+        }
         chargeTime = chargeTime / maxCharge;
 
         Vector3 scale = transform.localScale;

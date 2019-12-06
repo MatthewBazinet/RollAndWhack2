@@ -25,17 +25,17 @@ public class BallRoller: MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            if (collision.rigidbody.velocity.sqrMagnitude <= rb.velocity.sqrMagnitude) {
-                collision.gameObject.GetComponent<EnemyTarget>().CurHp -= rb.velocity.magnitude * 10.0f;
-                collision.rigidbody.AddForce(rb.velocity * 10.0f);
-            } else
-            {
+          //  if (collision.rigidbody.velocity.sqrMagnitude < rb.velocity.sqrMagnitude) {
+           //     collision.gameObject.GetComponent<EnemyTarget>().CurHp -= rb.velocity.magnitude * 10.0f;
+         //       collision.rigidbody.AddForce(rb.velocity * 10.0f);
+        //    } else
+          //  {
                 curHp -= collision.gameObject.GetComponent<EnemyTarget>().damage;
-            }
+            //}
         }
     }
 }

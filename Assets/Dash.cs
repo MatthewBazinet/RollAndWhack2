@@ -8,7 +8,7 @@ public class Dash : MonoBehaviour
     public float VelMax; // the maximum amount of speed 
     public float chargeMax; // the maximum charge time
     public Rigidbody rb;
-    private float chargeTime;
+   public float chargeTime;
     public BallRoller br;
     public float speed;
 

@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
             direction = Random.Range(0.0f, 360.0f);
             Instantiate(enemy, 
                 tf.position + new Vector3(distance * Mathf.Cos(direction), 
-                0.0f, distance * Mathf.Sin(direction)),
+                -19.0f, distance * Mathf.Sin(direction)),
                 new Quaternion());
 
             delayLeft = delayTime;
