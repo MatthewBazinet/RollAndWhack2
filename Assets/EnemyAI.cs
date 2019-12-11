@@ -8,19 +8,18 @@ public class EnemyAI: MonoBehaviour
     NavMeshAgent myNavMeshAgent;
     float oldtime = 0.0f;
     Vector3 position = new Vector3(0, 0, 0);
-    public GameObject Sphere;
-    public GameObject Cube;
+    GameObject Sphere;
+    GameObject Cube;
 
     // Start is called before the first frame update
     void Start()
     {
+        Sphere = GameObject.FindWithTag("Sphere");
+        Cube = GameObject.FindWithTag("Cube");
         myNavMeshAgent = GetComponent<NavMeshAgent>();
         if (Sphere.activeInHierarchy)
         {
             position = Sphere.transform.position;
-        } else if (Cube.activeInHierarchy)
-        {
-            position = Cube.transform.position;
         }
     }
 
@@ -28,20 +27,21 @@ public class EnemyAI: MonoBehaviour
     void Update()
     {
 
-        if (Time.time > 2 + oldtime)
+        if (Time.time > 0.5 + oldtime)
         {
             if (Sphere.activeInHierarchy)
             {
                 position = Sphere.transform.position;
             }
-            else if (Cube.activeInHierarchy)
+            else
             {
                 position = Cube.transform.position;
             }
 
             oldtime = Time.time;
+            myNavMeshAgent.SetDestination(position);
         }
-        myNavMeshAgent.SetDestination(position);
+        
     }
 
 

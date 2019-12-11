@@ -27,7 +27,7 @@ public class TransformToSphere : MonoBehaviour
     {
         if ((Input.GetKeyDown(KeyCode.F)) && (spInfo.curHp > 0.0f))
         {
-            if (sphere.active == true)
+            if (sphere.activeInHierarchy == true)
             {
                 sphere.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 cube.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
@@ -36,7 +36,7 @@ public class TransformToSphere : MonoBehaviour
                 cube.SetActive(true);
                 sphere.SetActive(false);
             }
-            else if (cube.active == true)
+            else if (cube.activeInHierarchy == true)
             {
                 cube.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 sphere.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);

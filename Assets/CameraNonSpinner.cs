@@ -5,7 +5,8 @@ using UnityEngine;
 public class CameraNonSpinner : MonoBehaviour
 {
 
-    public GameObject player;
+    public GameObject Sphere;
+    public GameObject Cube;
     public Vector3 offset;
 
 
@@ -19,11 +20,19 @@ public class CameraNonSpinner : MonoBehaviour
     void Update()
     {
 
+        if (Sphere.activeInHierarchy)
+   
+        {
+            transform.position = offset + Sphere.transform.position;
 
-        transform.position = offset + player.transform.position;
+            transform.RotateAround(Sphere.transform.position, Vector3.up, Input.GetAxis("Mouse X"));
+        }
+        else
+        {
+            transform.position = offset + Cube.transform.position;
 
-        transform.RotateAround(player.transform.position, Vector3.up, Input.GetAxis("Mouse X"));
-
+            transform.RotateAround(Cube.transform.position, Vector3.up, Input.GetAxis("Mouse X"));
+        }
 
     }
 

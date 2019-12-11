@@ -24,12 +24,12 @@ public class EnemyTarget : MonoBehaviour
     {
         if (CurHp <= 0)
         {
-            rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
-            rb.position = camera.transform.position + new Vector3(1,0,5);
-            Debug.Log("Target: Reposition for spawn");
-            CurHp = MaxHp;
-            rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
-
+            //rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            //rb.position = camera.transform.position + new Vector3(1,0,5);
+            //Debug.Log("Target: Reposition for spawn");
+            //CurHp = MaxHp;
+            //rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            Destroy(gameObject);
         }
     }
 
