@@ -33,17 +33,12 @@ public class EnemyTarget : MonoBehaviour
         }
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Attack")
-    //    {
-    //        CurHp -= 5;
-    //        Debug.Log("Target: Hit by Attack");
-    //        if (CurHp <= 0)
-    //        {
-    //            rb.position = new Vector3(0.0f, 10.0f, 0.0f);
-    //            Debug.Log("Target: Reposition for spawn");
-    //        }
-    //    }
-    //}
+    private void OnCollisionEnter (Collision collision)
+   {
+       if (collision.gameObject.tag == "Sphere" && collision.rigidbody.velocity.magnitude > rb.velocity.magnitude)
+       {
+           CurHp -= (collision.rigidbody.velocity.magnitude * 20.0f);
+           Debug.Log("Target: Hit by Attack");
+       }
+   }
 }

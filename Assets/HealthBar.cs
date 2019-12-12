@@ -33,8 +33,13 @@ public class HealthBar : MonoBehaviour
 
         Vector3 scale = transform.localScale;
         Vector3 pos = transform.localPosition;
-        scale.x = curHP;
-        
+        if (curHP > 0)
+        {
+            scale.x = curHP;
+        } else
+        {
+            scale.x = 0;
+        }
         transform.localScale = scale;
     }
 }

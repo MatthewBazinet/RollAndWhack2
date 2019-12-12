@@ -17,7 +17,7 @@ public class BallRoller: MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         rb.AddForce(speed * Camera.transform.up * Input.GetAxis("Vertical"));
@@ -27,15 +27,26 @@ public class BallRoller: MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy")
-        {
-          //  if (collision.rigidbody.velocity.sqrMagnitude < rb.velocity.sqrMagnitude) {
-           //     collision.gameObject.GetComponent<EnemyTarget>().CurHp -= rb.velocity.magnitude * 10.0f;
-         //       collision.rigidbody.AddForce(rb.velocity * 10.0f);
-        //    } else
-          //  {
+        if (collision.gameObject.tag == "Enemy") {
+            if(collision.rigidbody.velocity.sqrMagnitude > rb.velocity.sqrMagnitude) {
+
                 curHp -= collision.gameObject.GetComponent<EnemyTarget>().damage;
-            //}
+            } else
+            {
+                collision.gameObject.GetComponent<EnemyTarget>().CurHp -= rb.velocity.magnitude * 10.0f;
+            }
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if (collision.rigidbody.velocity.sqrMagnitude < rb.velocity.sqrMagnitude)
+            {
+                collision.gameObject.GetComponent<EnemyTarget>().CurHp -= rb.velocity.magnitude * 10.0f;
+            }
+        }
+    }
+
 }
